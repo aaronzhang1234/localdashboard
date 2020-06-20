@@ -1,5 +1,5 @@
 import React, {Component} from 'react';      
-import NasaCard from './components/nasaCard.js'
+import TimeCard from './components/timeCard.js'
 import axios from 'axios';
 
 class App extends Component{
@@ -8,7 +8,7 @@ class App extends Component{
   }
   render(){
     return (
-      <NasaCard></NasaCard>
+      <TimeCard></TimeCard>
     );
   }
 }
