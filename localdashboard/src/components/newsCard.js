@@ -19,15 +19,17 @@ class NewsCard extends Component{
     }, 10 * 1000)
     setInterval(()=>{
         this.getNews()
-    }, 20 * 60 * 1000)
+    }, 5 * 60 * 1000)
    this.getNews();
   }
   async getNews(){
       console.log("getting news");
+      
     await axios.get("https://cors-anywhere.herokuapp.com/https://feeds.npr.org/1004/feed.json")
     .then((response)=>{
         console.log(response);
         this.setState({
+            curnum:0,
             news_object:response.data.items
         })
     })
@@ -41,9 +43,8 @@ class NewsCard extends Component{
       if(this.state.news_object != null){
         news=this.state.news_object;
         cur_news = news[this.state.number%news.length]
-      }
-      console.log(cur_news);
-    return (
+      }    
+      return (
         <React.Fragment>
           {news.length &&
           <React.Fragment>
