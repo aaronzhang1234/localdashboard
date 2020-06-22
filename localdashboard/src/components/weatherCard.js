@@ -22,7 +22,6 @@ class WeatherCard extends Component{
       console.log("getting weather")
     axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=42.3&lon=-83&%20exclude=minutely&units=imperial&appid=ada7d94deca1e938a3cc4bf5fcc08833")
     .then((response)=>{
-        console.log(response);
         this.setState({
             current_weather:response.data.current,
             hourly_weather:response.data.hourly,
@@ -42,27 +41,39 @@ class WeatherCard extends Component{
 
       if(this.state.daily_weather!=null){
           let daily_weather_obj = this.state.daily_weather;
-          daily_weather_obj.map((row,index)=>{
+          daily_weather_obj.forEach(day => {
+
+              let weekday = new Array(7);
+              weekday[0] = "Sun";  
+              weekday[1] = "Mon";
+              weekday[2] = "Tue";
+              weekday[3] = "Wed";
+              weekday[4] = "Thu";
+              weekday[5] = "Fri";
+              weekday[6] = "Sat";
+              let datetime = new Date(day.dt * 1000);
+              let dayname = weekday[datetime.getDay()];
               daily_weather.push(
                   <div id="day_cards">
-                      <img src={"http://openweathermap.org/img/wn/" + row.weather[0].icon + "@2x.png"}></img>
-                      <h1>{Math.round(row.temp.max)}</h1>
-                      <h1>{Math.round(row.temp.min)}</h1>
+                      <img src={"http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png"}></img>
+                      <h1 id="day_name">{dayname}</h1>
+                      <h1 class="temps">{Math.round(day.temp.max)}&deg;</h1>
+                      <h1 id="min_temp" class="temps">{Math.round(day.temp.min)}&deg;</h1>
                   </div>
-              )              
-          })
+              )
+          });              
       }
       if(this.state.current_weather!=null){
           let current_weather_obj = this.state.current_weather;
           current_weather = (
                 <React.Fragment>
-                    <h1 id="current_weather_h1">Current Weather</h1> 
-                    <h2>{Math.round(current_weather_obj.temp)}</h2>
+                    <h1 id="current_temp">{Math.round(current_weather_obj.temp)}&deg;</h1>
                 </React.Fragment>
             );
       }
     return (
         <div id="main_weather">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;1,900&display=swap" rel="stylesheet"/>
             <video id="weather_video" autoPlay loop muted>
                 <source src={clouds} type="video/mp4"/>
             </video>

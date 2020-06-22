@@ -1,5 +1,12 @@
+@font-face{
+    font-family:'Digital-7';
+    font-style: normal;
+    font-weight: 400;
+    src:url('../media/fonts/digital-7.mono.ttf')
+}
 #time{
-    font-size:70px;
+    font-family: "Digital-7";
+    font-size:150px;
     text-align: center;
     margin:0;
     background-color:black;

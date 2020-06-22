@@ -1,7 +1,6 @@
 import React, {Component} from 'react';      
-import TimeCard from './components/timeCard.js'
-import NewsCard from './components/newsCard.js'
-import axios from 'axios';
+import TimeCard from './components/timeCard.js';
+import NewsCard from './components/newsCard.js';
 import WeatherCard from './components/weatherCard.js';
 
 class App extends Component{
