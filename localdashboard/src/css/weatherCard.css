@@ -4,4 +4,19 @@
 #main_weather{
     margin:0 auto;
     text-align:center;
+    position: relative;
+    height:100%;
+    width:100%;
+}
+#current_weather_h1{
+    margin:0;
+}
+#weather_video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    z-index: -1;
 }

@@ -20,7 +20,7 @@ class TimeCard extends Component{
       var third_width = Math.round(window.innerWidth/3);
       var half_height = Math.round(window.innerHeight/2);
     return (
-    <div style={{backgroundImage:"url(https://picsum.photos/"+third_width+"/"+half_height+")",height:"100%", width:"100%"}}>
+    <div id="main_time" style={{backgroundImage:"url(https://picsum.photos/"+third_width+"/"+half_height+")",height:"100%", width:"100%"}}>
       <h1 id="time">{this.state.time}</h1> 
     </div>
 

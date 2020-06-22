@@ -1,9 +1,15 @@
 #title{
     text-align: center;
     margin:0;
+    background-color:black;
+    color:white;
+    position:absolute;
+    bottom:0;
 }
 #news_card{
+    display:flex;
     height:100%;
     width:100%;
     background-size:cover;
+    position: relative;
 }

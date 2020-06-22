@@ -1,6 +1,7 @@
 import React, {Component} from 'react';      
 import axios from 'axios';
-import '../css/weatherCard.css'
+import '../css/weatherCard.css';
+import clouds from '../media/clouds.mp4';
 
 class WeatherCard extends Component{
   constructor(props){
@@ -14,7 +15,7 @@ class WeatherCard extends Component{
   componentDidMount(){
     setInterval(()=>{
         this.getWeather();
-    }, 60 * 1000)
+    }, 2 * 60 * 1000)
     this.getWeather();
   }
   async getWeather(){
@@ -36,34 +37,38 @@ class WeatherCard extends Component{
       console.log(this.state.current_weather);
       console.log(this.state.hourly_weather);
       console.log(this.state.daily_weather);
-      var daily_weather = [];
+      let daily_weather = [];
       let current_weather;
+
       if(this.state.daily_weather!=null){
-          daily_weather = this.state.daily_weather
+          let daily_weather_obj = this.state.daily_weather;
+          daily_weather_obj.map((row,index)=>{
+              daily_weather.push(
+                  <div id="day_cards">
+                      <img src={"http://openweathermap.org/img/wn/" + row.weather[0].icon + "@2x.png"}></img>
+                      <h1>{Math.round(row.temp.max)}</h1>
+                      <h1>{Math.round(row.temp.min)}</h1>
+                  </div>
+              )              
+          })
       }
       if(this.state.current_weather!=null){
+          let current_weather_obj = this.state.current_weather;
           current_weather = (
                 <React.Fragment>
-                    <h1>Current Weather</h1> 
-                    <h2>{Math.round(this.state.current_weather.temp)}</h2>
+                    <h1 id="current_weather_h1">Current Weather</h1> 
+                    <h2>{Math.round(current_weather_obj.temp)}</h2>
                 </React.Fragment>
             );
       }
     return (
         <div id="main_weather">
+            <video id="weather_video" autoPlay loop muted>
+                <source src={clouds} type="video/mp4"/>
+            </video>
             {current_weather}
-            {daily_weather.length &&
-                daily_weather.map((row,index)=>{
-                    return (
-                        <div id="day_cards">
-                            <img src={"http://openweathermap.org/img/wn/" + row.weather[0].icon + "@2x.png"}></img>
-                            <h1>{Math.round(row.temp.max)}</h1>
-                            <h1>{Math.round(row.temp.min)}</h1>
-                        </div>
-                    )
-                })
-            }            
-        </div>
+            {daily_weather}          
+       </div>
     );
   }
 }
