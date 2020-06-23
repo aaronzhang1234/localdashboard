@@ -9,10 +9,12 @@
     height:100%;
     width:100%;
 }
-#current_temp{
+#current_temp{    
     margin:0;
     font-size:70px;
     font-family: 'Lato', sans-serif;
+    color: #fff;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
 #weather_video{
     position:absolute;
@@ -25,12 +27,17 @@
 }
 .temps{
     display:inline-block;
+    color: #fff;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+
 }
 #min_temp{
     font-size:30px;
-    font-weight: lighter;
+    font-weight:200;
 }
 #day_name{
+    color: #fff;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     margin:0;
     font-family: 'Lato', sans-serif;
 }

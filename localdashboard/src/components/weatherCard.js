@@ -1,7 +1,7 @@
 import React, {Component} from 'react';      
 import axios from 'axios';
 import '../css/weatherCard.css';
-import clouds from '../media/clouds.mp4';
+import WeatherBackground from './weatherComponents/weatherBackground.js';
 
 class WeatherCard extends Component{
   constructor(props){
@@ -38,6 +38,7 @@ class WeatherCard extends Component{
       console.log(this.state.daily_weather);
       let daily_weather = [];
       let current_weather;
+      let weather_background;
 
       if(this.state.daily_weather!=null){
           let daily_weather_obj = this.state.daily_weather;
@@ -74,9 +75,7 @@ class WeatherCard extends Component{
     return (
         <div id="main_weather">
             <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;1,900&display=swap" rel="stylesheet"/>
-            <video id="weather_video" autoPlay loop muted>
-                <source src={clouds} type="video/mp4"/>
-            </video>
+            <WeatherBackground weather={this.state.current_weather}/>            
             {current_weather}
             {daily_weather}          
        </div>
