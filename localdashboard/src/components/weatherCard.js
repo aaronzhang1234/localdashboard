@@ -38,7 +38,6 @@ class WeatherCard extends Component{
       console.log(this.state.daily_weather);
       let daily_weather = [];
       let current_weather;
-      let weather_background;
 
       if(this.state.daily_weather!=null){
           let daily_weather_obj = this.state.daily_weather;

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TimeCard from './components/timeCard.js';
 import NewsCard from './components/newsCard.js';
 import WeatherCard from './components/weatherCard.js';
+import UntitledCard from './components/untitledCard.js';
 
 class App extends Component{
   constructor(props){    
@@ -17,6 +18,9 @@ class App extends Component{
         </div>
         <div style={{display:"inline-block", verticalAlign:"top", margin:"auto", height:half_height+"px", width:third_width+"px"}}>        
           <TimeCard></TimeCard>
+        </div>      
+        <div style={{display:"inline-block", verticalAlign:"top", margin:"auto", height:half_height+"px", width:third_width+"px"}}>        
+          <UntitledCard></UntitledCard>
         </div>      
         <div style={{margin:"auto", width:"100%", height:half_height+"px"}}>        
           <WeatherCard></WeatherCard>        

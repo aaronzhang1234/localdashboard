@@ -19,18 +19,18 @@ class NewsCard extends Component{
     }, 10 * 1000)
     setInterval(()=>{
         this.getNews()
-    }, 5 * 60 * 1000)
+    }, 20 * 60 * 1000)
    this.getNews();
   }
   async getNews(){
       console.log("getting news");
       
-    await axios.get("https://cors-anywhere.herokuapp.com/https://feeds.npr.org/1004/feed.json")
+    await axios.get("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&apiKey=3a2c64507e55439dbaa1d17477ed84d7")
     .then((response)=>{
         console.log(response);
         this.setState({
             curnum:0,
-            news_object:response.data.items
+            news_object:response.data.articles
         })
     })
     .catch((err)=>{
@@ -48,7 +48,7 @@ class NewsCard extends Component{
         <React.Fragment>
           {news.length &&
           <React.Fragment>
-              <div id="news_card" style={{backgroundImage:"url("+cur_news.image+")"}}>
+              <div id="news_card" style={{backgroundImage:"url("+cur_news.urlToImage+")"}}>
                 <h1 id="title">{cur_news.title}</h1>
               </div>
           </React.Fragment>
