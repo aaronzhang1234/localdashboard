@@ -7,11 +7,12 @@ class UntitledCard extends Component{
   }
   componentDidMount(){
     window.onSpotifyWebPlaybackSDKReady=()=>{
-      const token = 'BQAqIn8p9y0rq6wBCmec3KnTe5o3HvEs9kTaDnVm5kr1nla6ZT2i9rLDN6DVvcxe0XpKHQkLRz7BVkIACTVRiO8N3ghuqtZnPpc7GNYShzC2Xi43vaRMdiNRINvqgO-gvZc7ryPaScZ8SZJWMWRdkQe6sWOnj0nnrmX3Fuh1';
-    const player = new window.Spotify.Player({
-      name: 'Web Playback SDK Quick Start Player',
-      getOAuthToken: cb => { cb(token); }
-    });
+      const token = 'BQAsTHOThrq7GIqSHhVYbKb0EHb70r5s23S83eMpE7Gc6oaHFo31HDTVw2Q7W6Ry5uPOM1MxXCZ5OuvW2SlbUe2svWDEPNt4KBbE1kbNpP7x2aY3T9Ld8Y7Nooy7BcPvNGYk1ePGYa2kVMg-HfuBNflnXvU8BNDMYVG5mmbc';
+
+      const player = new window.Spotify.Player({
+        name: 'Web Playback SDK Quick Start Player',
+        getOAuthToken: cb => { cb(token); }
+      });
 
     // Error handling
     player.addListener('initialization_error', ({ message }) => { console.error(message); });
