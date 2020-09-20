@@ -15,7 +15,6 @@ class WeatherBackground extends Component{
                 break;
             case "Clear":
                 weather_background_video = require("../../media/clear_"+Math.ceil(Math.random()*3)+".mp4"); 
-                console.log(weather_background_video);
                 break;
             case "Clouds":
                 weather_background_video = require("../../media/clouds_"+Math.ceil(Math.random()*4)+".mp4"); 
